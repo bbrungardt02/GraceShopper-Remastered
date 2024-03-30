@@ -2,7 +2,7 @@
 
 ## Description
 
-GraceShopper-Remastered is an e-commerce web application inspired by the [original GraceShopper project](https://github.com/Mickey-d-s/GraceShopper). This remastered version allows users to place orders and view their order history, while providing admins with the ability to manage inventory.
+GraceShopper-Remastered is an e-commerce web application inspired by the [Original GraceShopper Project](https://github.com/Mickey-d-s/GraceShopper). This remastered version allows users to place orders and view their order history, while providing admins with the ability to manage inventory.
 
 As the lead developer, I coordinated a team of four to ensure the successful completion of the project. My responsibilities ranged from technical tasks to leadership roles, demonstrating my ability to deliver high-quality solutions.
 

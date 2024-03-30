@@ -11,9 +11,16 @@ const server = express();
 const client = require("./db/client");
 client.connect();
 
+const corsOptions = {
+  origin: (origin, callback) => {
+    callback(null, true);
+  },
+  credentials: true,
+};
+
 server.use(express.json());
 server.use(morgan("dev"));
-server.use(cors());
+server.use(cors(corsOptions));
 server.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Servers the built React app

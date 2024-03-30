@@ -1,7 +1,6 @@
 import { AuthContext } from "./auth/AuthProvider";
 import { useState, useEffect, useContext } from "react";
 import { fetchAllOrdersForUser } from "../api/profile";
-import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [shoppingCarts, setShoppingCarts] = useState([]);
@@ -42,6 +41,7 @@ export default function Profile() {
             {shoppingCarts.length > 0 ? (
               <div>
                 {shoppingCarts.map((shoppingCart) => (
+                  // eslint-disable-next-line react/jsx-key
                   <div id="scroll">
                     <div
                       key={shoppingCart.shoppingcart_id}

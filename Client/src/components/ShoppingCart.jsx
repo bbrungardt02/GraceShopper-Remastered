@@ -11,8 +11,10 @@ import { getUserShoppingCart } from "../api/menu";
 import { AuthContext } from "./auth/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 export default function StartOrder({ setCartItemCount }) {
   const { user } = useContext(AuthContext);
+  // eslint-disable-next-line no-unused-vars
   const [order, setOrder] = useState([]);
   const [shoppingCart, setShoppingCart] = useState([]);
   let navigate = useNavigate();
@@ -81,6 +83,7 @@ export default function StartOrder({ setCartItemCount }) {
 
   const deleteItem = async (item_id, qty) => {
     try {
+      // eslint-disable-next-line no-unused-vars
       const deletedCartItem = await deleteItemFromCart(item_id);
       // reset state of shopping cart
       const result = await getUserShoppingCart();

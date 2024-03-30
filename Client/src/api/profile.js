@@ -1,6 +1,13 @@
+import { API_URL } from "./constants";
+
 export async function fetchAllShoppingCarts(shoppingcart_id) {
   try {
-    const response = await fetch(`/api/shoppingcart/:${shoppingcart_id}`);
+    const response = await fetch(
+      `${API_URL}/api/shoppingcart/:${shoppingcart_id}`,
+      {
+        credentials: "include",
+      }
+    );
     const result = await response.json();
     // console.log(result);
     return result;
@@ -11,7 +18,12 @@ export async function fetchAllShoppingCarts(shoppingcart_id) {
 
 export async function fetchAllOrdersForUser() {
   try {
-    const response = await fetch(`/api/shoppingcart/user/order-history`);
+    const response = await fetch(
+      `${API_URL}/api/shoppingcart/user/order-history`,
+      {
+        credentials: "include",
+      }
+    );
     const result = await response.json();
     console.log("fetch all orders for a specific user", result);
     return result;

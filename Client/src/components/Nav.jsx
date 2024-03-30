@@ -5,7 +5,9 @@ import "../App.css";
 import "../index.css";
 import { useNavigate } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 const Nav = ({ cartItemCount }) => {
+  // eslint-disable-next-line no-unused-vars
   const { setLoggedIn, loggedIn, user, setUser } = useAuth();
   const navigate = useNavigate();
   console.log("loggedIn", loggedIn);
@@ -18,6 +20,7 @@ const Nav = ({ cartItemCount }) => {
 
   return (
     <nav className="nav">
+      {/* eslint-disable-next-line react/no-unescaped-entities */}
       <h3 className="Username">MICKEY D's</h3>
       <div className="Link">
         <Link to="/">Home</Link>

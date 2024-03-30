@@ -1,6 +1,8 @@
+import { API_URL } from "./constants";
+
 export async function fetchAllProducts() {
   try {
-    const response = await fetch("/api/products");
+    const response = await fetch(`${API_URL}/api/products`);
     const result = await response.json();
     console.log("result in fetch all Products", result);
     return result;
@@ -11,7 +13,9 @@ export async function fetchAllProducts() {
 
 export async function getUserShoppingCart() {
   try {
-    const response = await fetch(`/api/shoppingcart/user/cart`);
+    const response = await fetch(`${API_URL}/api/shoppingcart/user/cart`, {
+      credentials: "include",
+    });
     const result = await response.json();
     // console.log(result);
     return result;
@@ -21,13 +25,15 @@ export async function getUserShoppingCart() {
 }
 
 export async function addItemToCart(shoppingcart_id, product_id, count) {
+  // eslint-disable-next-line no-useless-catch
   try {
-    const response = await fetch("/api/cart_items", {
+    const response = await fetch(`${API_URL}/api/cart_items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ shoppingcart_id, product_id, count }),
+      credentials: "include",
     });
 
     if (!response.ok) {

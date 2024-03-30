@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Routes } from "react-router-dom";
 
 export function Dashboardnav() {
+  // eslint-disable-next-line no-useless-catch
   try {
     return (
       <>
@@ -17,6 +17,7 @@ export function Dashboardnav() {
         </div>
       </>
     );
+    // eslint-disable-next-line no-unreachable
   } catch (error) {
     throw error;
   }

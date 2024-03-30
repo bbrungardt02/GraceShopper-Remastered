@@ -1,5 +1,8 @@
+import { API_URL } from "./constants";
+
+// eslint-disable-next-line no-unused-vars
 export default async function registerUser(username, email, password, adm) {
-  const response = await fetch("api/users/register", {
+  const response = await fetch(`${API_URL}/api/users/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -9,6 +12,7 @@ export default async function registerUser(username, email, password, adm) {
       email,
       password,
     }),
+    credentials: "include",
   });
   console.log("RESPONSE: ", response);
   const { success, message, data } = await response.json();
@@ -23,7 +27,7 @@ export default async function registerUser(username, email, password, adm) {
 }
 
 export async function loginUser(username, password) {
-  const response = await fetch("/api/users/login", {
+  const response = await fetch(`${API_URL}/api/users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,6 +36,7 @@ export async function loginUser(username, password) {
       username,
       password,
     }),
+    credentials: "include",
   });
   const { success, message, data } = await response.json();
   if (!success) {
@@ -42,7 +47,9 @@ export async function loginUser(username, password) {
   return { success, message, data };
 }
 export async function logout() {
-  const response = await fetch("/api/users/logout");
+  const response = await fetch(`${API_URL}/api/users/logout`, {
+    credentials: "include",
+  });
   const { success, message, data } = await response.json();
   if (!success) {
     throw {
@@ -53,11 +60,12 @@ export async function logout() {
 }
 
 export async function getAllUsers() {
-  const response = await fetch("/api/users/");
+  const response = await fetch(`${API_URL}/api/users/`);
   const rows = await response.json();
   console.log("ALL USERS:", rows);
   if (!rows) {
     throw {
+      // eslint-disable-next-line no-undef
       message,
     };
   }
@@ -65,7 +73,9 @@ export async function getAllUsers() {
 }
 
 export async function fetchMe() {
-  const response = await fetch("/api/users/me");
+  const response = await fetch(`${API_URL}/api/users/me`, {
+    credentials: "include",
+  });
   const { success, message, user } = await response.json();
   console.log("INSIDE FETCH ME:       ", { success, message, user });
   if (!success) {
@@ -77,7 +87,9 @@ export async function fetchMe() {
 }
 
 export async function fetchuserbyid(userid) {
-  const response = await fetch(`/api/users/test/${userid}`);
+  const response = await fetch(`${API_URL}/api/users/test/${userid}`, {
+    credentials: "include",
+  });
   const { success, message, user } = await response.json();
   console.log("inside getuserbyid-api", { success, message, user });
   if (!success) {
@@ -87,15 +99,17 @@ export async function fetchuserbyid(userid) {
 }
 
 export async function updateuser(updateObj, userid) {
+  // eslint-disable-next-line no-useless-catch
   try {
     console.log("both user and object in api", { updateObj, userid });
     let adm = updateObj;
-    const response = await fetch(`/api/users/update/${userid}`, {
+    const response = await fetch(`${API_URL}/api/users/update/${userid}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
         adm,
       }),
+      credentials: "include",
     });
     const results = response.JSON;
     console.log("results", results);
@@ -108,8 +122,9 @@ export async function updateuser(updateObj, userid) {
 }
 
 export async function deleteuser(userid) {
+  // eslint-disable-next-line no-useless-catch
   try {
-    const response = await fetch(`/api/users/delete/${userid}`, {
+    const response = await fetch(`${API_URL}/api/users/delete/${userid}`, {
       method: "DELETE",
     });
     const results = response.JSON;

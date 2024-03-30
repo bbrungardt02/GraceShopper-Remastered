@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import gucci from "../assets/gucci.jpg";
 
 function Footer() {
@@ -59,6 +59,7 @@ function Footer() {
             <a href="#" />
             McCafé
           </li>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <div href="#">MyMcDonald's Rewards</div>
         </div>
         <div className="flexfooter">

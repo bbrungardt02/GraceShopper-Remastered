@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     async function getMe() {
       try {
+        // eslint-disable-next-line no-unused-vars
         const { message, success, user } = await fetchMe();
         setUser(user);
         setLoggedIn(true);

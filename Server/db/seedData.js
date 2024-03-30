@@ -27,7 +27,7 @@ const users = [
   {
     username: "admin",
     email: "admin@admin",
-    password: "$2b$10$75bde2uema2kBbiEcGsMIO6uihAycn4AqWZGHsRu5WK3VaLPnUOnW",
+    password: "admin",
     adm: true,
   },
 ];

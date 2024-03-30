@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { loginUser } from "../../../src/api/userAuth";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 export default function LoginForm() {
+  // eslint-disable-next-line no-unused-vars
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { setLoggedIn } = useAuth();

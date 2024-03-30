@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "./auth/AuthProvider";
 import bigburger from "../assets/bigburger.jpg";
 
@@ -13,6 +13,7 @@ export function Homepage() {
   };
 
   try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { loggedIn } = useContext(AuthContext);
     return (
       <>
@@ -27,6 +28,7 @@ export function Homepage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   Brandon's LinkedIn
                 </a>
                 <h1>Brian Kim</h1>
@@ -36,6 +38,7 @@ export function Homepage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   Brian's LinkedIn
                 </a>
                 <h1>Elliot Carmona</h1>
@@ -45,6 +48,7 @@ export function Homepage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   Elliot's LinkedIn
                 </a>
                 <h1>Charlotte Sass</h1>
@@ -54,6 +58,7 @@ export function Homepage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   Charlotte's LinkedIn
                 </a>
                 <button onClick={closePopup}>Close</button>
@@ -64,6 +69,7 @@ export function Homepage() {
         <div id="burger2Parent">
           <div id="bigBurger2">
             <h1 className="landertext">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               THE ORIGINAL BURGER JOINT<br></br> BEFORE MC**ALD'S
             </h1>
           </div>
@@ -74,6 +80,7 @@ export function Homepage() {
             <p>
               Have a taste of our world-renowned* Burger & Fries! We have a
               variety of foods sure to satisfy your appetite<br></br> whether
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               it's a juicy burger, our specially seasoned fries, or one of our
               refreshing beverages!
             </p>
@@ -105,6 +112,7 @@ export function Homepage() {
           </div>
         </div>
         <div>
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <h1>"The Best Burger I Ever Had"</h1>
           <p>- Satisfied Customer</p>
         </div>
@@ -125,5 +133,7 @@ export function Homepage() {
         </div>
       </>
     );
-  } catch (error) {}
+  } catch (error) {
+    /* empty */
+  }
 }

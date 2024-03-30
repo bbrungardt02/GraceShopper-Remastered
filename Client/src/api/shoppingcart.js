@@ -1,6 +1,8 @@
+import { API_URL } from "./constants";
+
 export async function createShoppingCart({ status, user_id }) {
   try {
-    const response = await fetch(`/api/shoppingcart`, {
+    const response = await fetch(`${API_URL}/api/shoppingcart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -9,6 +11,7 @@ export async function createShoppingCart({ status, user_id }) {
         status,
         user_id,
       }),
+      credentials: "include",
     });
     const result = await response.json();
     console.log(result);
@@ -20,12 +23,13 @@ export async function createShoppingCart({ status, user_id }) {
 
 export async function updateItemQty(item_id, count) {
   try {
-    const response = await fetch(`/api/cart_items/${item_id}`, {
+    const response = await fetch(`${API_URL}/api/cart_items/${item_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ count: count }),
+      credentials: "include",
     });
     const updatedCartQty = await response.json();
     console.log("updated cart item:", updatedCartQty);
@@ -37,7 +41,7 @@ export async function updateItemQty(item_id, count) {
 
 export async function checkoutInventoryQuantity(inventory_id, quantity) {
   try {
-    const response = await fetch(`/api/inventories/checkout`, {
+    const response = await fetch(`${API_URL}/api/inventories/checkout`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +50,7 @@ export async function checkoutInventoryQuantity(inventory_id, quantity) {
         inventory_id,
         quantity,
       }),
+      credentials: "include",
     });
     const result = await response.json();
     console.log(result);
@@ -57,7 +62,7 @@ export async function checkoutInventoryQuantity(inventory_id, quantity) {
 
 export async function completeOrder(user_id) {
   try {
-    const response = await fetch(`/api/shoppingcart/completed`, {
+    const response = await fetch(`${API_URL}/api/shoppingcart/completed`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -65,6 +70,8 @@ export async function completeOrder(user_id) {
       body: JSON.stringify({
         user_id,
       }),
+
+      credentials: "include",
     });
     const result = await response.json();
     console.log(result);
@@ -76,7 +83,7 @@ export async function completeOrder(user_id) {
 
 export async function cancelOrder(user_id) {
   try {
-    const response = await fetch(`api/shoppingcart/cancel`, {
+    const response = await fetch(`${API_URL}/api/shoppingcart/cancel`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -84,6 +91,7 @@ export async function cancelOrder(user_id) {
       body: JSON.stringify({
         user_id,
       }),
+      credentials: "include",
     });
     const result = await response.json();
     console.log(result);
@@ -95,7 +103,7 @@ export async function cancelOrder(user_id) {
 
 export async function deleteItemFromCart(item_id) {
   try {
-    const response = await fetch(`api/cart_items/${item_id}`, {
+    const response = await fetch(`${API_URL}/api/cart_items/${item_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -103,6 +111,7 @@ export async function deleteItemFromCart(item_id) {
       body: JSON.stringify({
         item_id,
       }),
+      credentials: "include",
     });
     const result = await response.json();
     console.log(result);

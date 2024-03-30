@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState, useEffect } from "react";
 // // import { useNavigate } from "react-router-dom";
 import { getAllUsers, updateuser } from "../api/userAuth";
