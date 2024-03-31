@@ -2,28 +2,33 @@ import { API_URL } from "./constants";
 
 // eslint-disable-next-line no-unused-vars
 export default async function registerUser(username, email, password, adm) {
-  const response = await fetch(`${API_URL}/api/users/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username,
-      email,
-      password,
-    }),
-    credentials: "include",
-  });
-  console.log("RESPONSE: ", response);
-  const { success, message, data } = await response.json();
-  console.log({ success, message, data });
-  if (!success) {
-    throw {
-      message,
-    };
+  try {
+    const response = await fetch(`${API_URL}/api/users/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+      credentials: "include",
+    });
+    console.log("RESPONSE: ", response);
+    const { success, message, data } = await response.json();
+    console.log({ success, message, data });
+    if (!success) {
+      throw {
+        message,
+      };
+    }
+    console.log(success, message, data);
+    return { success, message, data };
+  } catch (error) {
+    console.error("Error in registerUser:", error);
+    throw error;
   }
-  console.log(success, message, data);
-  return { success, message, data };
 }
 
 export async function loginUser(username, password) {
