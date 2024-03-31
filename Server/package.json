@@ -8,6 +8,7 @@
     "start": "node server.js",
     "server:dev": "nodemon server.js",
     "start:dev": "(npm run dev --prefix ../Client) & nodemon server.js",
+    "deploy": "node ./db/seed.js && (npm run dev --prefix client) & node server.js",
     "build": "npm install --production=false --prefix Client && npm run build --prefix Client"
   },
   "author": "",
