@@ -27,24 +27,29 @@ export default async function registerUser(username, email, password, adm) {
 }
 
 export async function loginUser(username, password) {
-  const response = await fetch(`${API_URL}/api/users/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username,
-      password,
-    }),
-    credentials: "include",
-  });
-  const { success, message, data } = await response.json();
-  if (!success) {
-    throw {
-      message,
-    };
+  try {
+    const response = await fetch(`${API_URL}/api/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+      credentials: "include",
+    });
+    const { success, message, data } = await response.json();
+    if (!success) {
+      throw {
+        message,
+      };
+    }
+    return { success, message, data };
+  } catch (error) {
+    console.error("Error in loginUser:", error);
+    throw error;
   }
-  return { success, message, data };
 }
 export async function logout() {
   const response = await fetch(`${API_URL}/api/users/logout`, {
