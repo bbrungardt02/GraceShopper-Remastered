@@ -33,8 +33,7 @@ usersRouter.get("/test/:id", async (req, res, next) => {
 });
 usersRouter.post("/register", async (req, res, next) => {
   try {
-    // const { username, email, password, adm } = req.body.username;
-    const { username, email, password, adm } = req.body;
+    const { username, email, password, adm } = req.body.username;
     console.log("username", username);
     console.log("email", email);
     console.log("password", password);
