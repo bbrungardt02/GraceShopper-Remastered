@@ -95,9 +95,9 @@ export function Homepage() {
             <div id="fries">
               <h4 className="product">Seasoned Crispy Fries</h4>
               <p>
-                <a className="productbtn" href="/menu">
+                <Link className="productbtn" to="/menu">
                   Order Online
-                </a>
+                </Link>
               </p>
             </div>
           </div>
@@ -105,9 +105,9 @@ export function Homepage() {
             <div id="chickenburger">
               <h4 className="product">Chicken Burger</h4>
               <p>
-                <a className="productbtn" href="/menu">
+                <Link className="productbtn" to="/menu">
                   Order Online
-                </a>
+                </Link>
               </p>
             </div>
           </div>

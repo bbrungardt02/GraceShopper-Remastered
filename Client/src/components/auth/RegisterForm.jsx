@@ -2,6 +2,7 @@ import registerUser from "../../api/userAuth";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 export default function RegisterForm() {
   // eslint-disable-next-line no-unused-vars
@@ -94,9 +95,9 @@ export default function RegisterForm() {
         </form>
         <p>
           Already have an account?&nbsp;&nbsp;
-          <a className="loginTag" href="/login">
+          <Link className="loginTag" to="/login">
             Log In
-          </a>
+          </Link>
         </p>
       </div>
     </div>
