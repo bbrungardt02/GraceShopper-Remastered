@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "./auth/AuthProvider";
 import bigburger from "../assets/bigburger.jpg";
+import { Link } from "react-router-dom";
 
 export function Homepage() {
   const [showPopup, setShowPopup] = useState(false);
@@ -122,13 +123,13 @@ export function Homepage() {
         <div>
           <h1>Order Online or Come Visit Us Today</h1>
           {loggedIn ? (
-            <a className="getStarted" href="/shoppingcart">
+            <Link className="getStarted" to="/shoppingcart">
               Get Started
-            </a>
+            </Link>
           ) : (
-            <a className="getStarted" href="/login">
+            <Link className="getStarted" to="/login">
               Log In
-            </a>
+            </Link>
           )}
         </div>
       </>

@@ -92,7 +92,8 @@ usersRouter.post("/login", async (req, res, next) => {
       delete user.password;
       const token = jwt.sign(user, JWT_SECRET);
       res.cookie("token", token, {
-        sameSite: "strict",
+        sameSite: "None",
+        secure: true,
         httpOnly: true,
         signed: true,
       });
