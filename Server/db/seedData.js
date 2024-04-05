@@ -3,31 +3,31 @@ const users = [
   {
     username: "Brandon",
     email: "Brandon@gmail.com",
-    password: 12345678,
+    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
     adm: false,
   },
   {
     username: "Jeffrey",
     email: "Jeffrey@gmail.com",
-    password: 12345678,
+    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
     adm: false,
   },
   {
     username: "Elliot",
     email: "Elliot@gmail.com",
-    password: 12345678,
+    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
     adm: false,
   },
   {
     username: "Brian",
     email: "Brian@gmail.com",
-    password: 12345678,
+    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
     adm: false,
   },
   {
     username: "admin",
     email: "admin@admin",
-    password: "admin",
+    password: "$2b$10$c8nQpTEzAMZzbymAFuAQmeGbiTGADyxfEo9MMksM2qo6Erb0vPpeG",
     adm: true,
   },
 ];
