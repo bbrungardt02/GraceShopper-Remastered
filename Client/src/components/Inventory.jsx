@@ -87,21 +87,22 @@ export default function allInventories() {
   }
 
   return (
-    <div className="flex-1">
-      <h2>Inventory</h2>
+    <div className="flex flex-col w-full">
+      <h2 className="text-2xl font-bold mb-4">Inventory</h2>
       <form
         onSubmit={(e) =>
           handleAdd(e, product_name, price, description, inventoryID, category)
         }
-        className="m-1 border border-black p-4"
+        className="m-1 mx-40 border border-black p-4"
       >
-        <label>Create New Product</label>
+        <label className="font-semibold text-lg mb-2">Create New Product</label>
         <input
           type="text"
           id="product_name"
           placeholder="Product Name"
           value={product_name}
           onChange={(e) => setProductName(e.target.value)}
+          className="border border-gray-300 p-2 mb-2 rounded"
         />
         <input
           type="number"
@@ -109,6 +110,7 @@ export default function allInventories() {
           placeholder="Inventory ID"
           value={inventoryID}
           onChange={(e) => setInventoryID(e.target.value)}
+          className="border border-gray-300 p-2 mb-2 rounded"
         />
         <input
           type="number"
@@ -116,6 +118,7 @@ export default function allInventories() {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+          className="border border-gray-300 p-2 mb-2 rounded"
         />
         <input
           type="text"
@@ -123,6 +126,7 @@ export default function allInventories() {
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="border border-gray-300 p-2 mb-2 rounded"
         />
         <input
           type="text"
@@ -130,9 +134,12 @@ export default function allInventories() {
           placeholder="Category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
+          className="border border-gray-300 p-2 mb-2 rounded"
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+          Submit
+        </button>
       </form>
       {products.map((product) => {
         const productInventories = inventories.filter(
@@ -145,14 +152,22 @@ export default function allInventories() {
         return (
           <div
             key={product.product_id}
-            className="inline-table m-1 border border-black p-4"
+            className="inline-table m-1 mx-60 border border-black p-4"
           >
-            <p>Inventory ID: {product.inventory_id}</p>
-            <p>Product: {product.product_name}</p>
-            <p>Description: {product.description}</p>
-            <p>Category: {product.category}</p>
-            <p>Price: ${product.price}</p>
-            <p>Quantity: {totalQuantity}</p>
+            <p className="font-semibold text-lg">
+              Inventory ID: {product.inventory_id}
+            </p>
+            <p className="font-semibold text-lg">
+              Product: {product.product_name}
+            </p>
+            <p className="font-semibold text-lg">
+              Description: {product.description}
+            </p>
+            <p className="font-semibold text-lg">
+              Category: {product.category}
+            </p>
+            <p className="font-semibold text-lg">Price: ${product.price}</p>
+            <p className="font-semibold text-lg">Quantity: {totalQuantity}</p>
             <form
               onSubmit={(e) => {
                 handleUpdateInventoryQuantity(
@@ -168,13 +183,18 @@ export default function allInventories() {
                 placeholder="Quantity"
                 value={product.quantity}
                 onChange={(e) => setQuantity(e.target.value)}
+                className="border border-gray-300 p-2 mb-2 rounded"
               />
-              <button type="submit" value={product.product_id}>
+              <button
+                type="submit"
+                value={product.product_id}
+                className="bg-blue-500 text-white p-2 rounded"
+              >
                 Update Quantity
               </button>
             </form>
             <button
-              className="cursor-pointer"
+              className="cursor-pointer bg-red-500 text-white p-2 rounded"
               value={product.product_id}
               onClick={(e) => {
                 handleDeleteProduct(e, product.inventory_id);
