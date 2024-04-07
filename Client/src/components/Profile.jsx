@@ -29,39 +29,40 @@ export default function Profile() {
 
   return (
     <>
-      <div className="route_flex">
-        <h1 className="userHeader">Welcome, {user.username}!</h1>
-        <div className="userInfo">
-          <u>USER INFO</u>
-          <div>{("username:", user.username)}</div>
-          <div>{("email:", user.email)}</div>
-          <hr></hr>
-          <div className="orderhistory">
-            <h2> Order History</h2>
+      <div className="flex-1 p-4 bg-yellow-100">
+        <h1 className="text-2xl font-bold mb-4">Welcome, {user.username}!</h1>
+        <div className="space-y-4">
+          <u className="text-lg font-semibold">USER INFO</u>
+          <div className="font-medium">Username: {user.username}</div>
+          <div className="font-medium">Email: {user.email}</div>
+          <hr className="my-4"></hr>
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold">Order History</h2>
             {shoppingCarts.length > 0 ? (
-              <div>
+              <div className="space-y-4">
                 {shoppingCarts.map((shoppingCart) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <div id="scroll">
-                    <div
-                      key={shoppingCart.shoppingcart_id}
-                      className="ShoppingCart"
-                    >
-                      <h2>Order No. {shoppingCart.shoppingcart_id}</h2>
-                      <h3>Total: ${calculateTotalPrice(shoppingCart)}</h3>
-                      {shoppingCart.products.map((item) => (
-                        <div key={item.item_id}>
-                          <h4>{item.name}</h4>
-                          <p>Qty: {item.qty}</p>
-                          <p>Cost Per Item: ${item.price}</p>
-                        </div>
-                      ))}
-                    </div>
+                  <div
+                    key={shoppingCart.shoppingcart_id}
+                    className="p-4 m-2 border-2 border-yellow-500 rounded shadow-md transition-colors duration-200 ease-in-out hover:border-yellow-600 overflow-y-auto max-h-60 w-1/4"
+                  >
+                    <h2 className="text-lg font-semibold mb-2">
+                      Order No. {shoppingCart.shoppingcart_id}
+                    </h2>
+                    <h3 className="text-lg font-medium mb-2">
+                      Total: ${calculateTotalPrice(shoppingCart)}
+                    </h3>
+                    {shoppingCart.products.map((item) => (
+                      <div key={item.item_id} className="space-y-2">
+                        <h4 className="text-base font-medium">{item.name}</h4>
+                        <p className="text-sm">Qty: {item.qty}</p>
+                        <p className="text-sm">Cost Per Item: ${item.price}</p>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
             ) : (
-              <p>Your Order History is empty 🤕</p>
+              <p className="text-base">Your Order History is empty 🤕</p>
             )}
           </div>
         </div>

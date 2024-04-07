@@ -12,12 +12,10 @@ function Footer() {
   };
 
   return (
-    <footer>
-      <h1
-        style={{ color: "green", textAlign: "center", marginTop: "-50px" }}
-      ></h1>
-      <div id="listitems">
-        <div className="flexfooter">
+    <footer className="flex flex-row bg-black p-5 text-yellow-500 text-sm font-sans text-center border-t border-gray-300 justify-center list-none">
+      <h1 className="text-green-500 text-center -mt-12"></h1>
+      <div className="flex flex-row justify-center items-center">
+        <div className="p-4 flex-1/3">
           <h1>About Us</h1>
           <li>
             <a href="#" />
@@ -37,15 +35,22 @@ function Footer() {
             </a>
           </li>
           {showPopup && (
-            <div className="popup-overlay">
-              <div className="popup-content">
-                <img src={gucci} alt="Gucci Mane" />
-                <button onClick={closePopup}>Close</button>
-              </div>
+            <div className="fixed inset-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center z-50">
+              <img
+                className="object-contain w-full h-full z-10"
+                src={gucci}
+                alt="Gucci Mane"
+              />
+              <button
+                className="absolute top-2 right-2 bg-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer text-lg text-black z-20"
+                onClick={closePopup}
+              >
+                X
+              </button>
             </div>
           )}
         </div>
-        <div className="flexfooter">
+        <div className="p-4 flex-1/3">
           <h1>Services</h1>
           <li>
             <a href="#" />
@@ -62,7 +67,7 @@ function Footer() {
           {/* eslint-disable-next-line react/no-unescaped-entities */}
           <div href="#">MyMcDonald's Rewards</div>
         </div>
-        <div className="flexfooter">
+        <div className="p-4 flex-1/3">
           <h1>Contact Us</h1>
           <li>
             <a href="#" />

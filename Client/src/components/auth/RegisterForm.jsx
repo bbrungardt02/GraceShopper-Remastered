@@ -50,52 +50,67 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="route_flex">
-      <div className="register-form">
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <h2>Register</h2>
-          {error && <p className="error-message">{error}</p>}
-          <input
-            className="input"
-            required
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br />
-          <input
-            className="input"
-            required
-            type="email"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <input
-            className="input righty"
-            required
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            className="input"
-            type="password"
-            placeholder="password confirmation"
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
-          <br />
-          <button type="submit">Submit</button>
+    <div className="flex-1 flex items-center justify-center">
+      <div className="w-full max-w-xs">
+        <form
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <h2 className="mb-4 font-bold text-lg">Register</h2>
+          {error && <p className="text-red-500 text-xs italic mb-4">{error}</p>}
+          <div className="mb-4">
+            <input
+              required
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <input
+              required
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <input
+              required
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="mb-6">
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              type="password"
+              placeholder="Password Confirmation"
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Register
+            </button>
+          </div>
         </form>
         <p>
           Already have an account?&nbsp;&nbsp;
-          <Link className="loginTag" to="/login">
+          <Link className="text-blue-500 underline" to="/login">
             Log In
           </Link>
         </p>

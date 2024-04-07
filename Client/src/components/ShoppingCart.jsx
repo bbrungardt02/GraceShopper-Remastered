@@ -130,52 +130,55 @@ export default function StartOrder({ setCartItemCount }) {
   };
 
   return (
-    <div className="route_flex">
-      <div id="orderButtons">
+    <div className="flex-1 bg-yellow-100">
+      <div className="pb-8 pt-16">
         {shoppingCart.length === 0 && (
-          <button id="startShopping" onClick={() => startShopping()}>
+          <button
+            className="startShopping bg-black hover:bg-gray-800 text-yellow-200 border-none px-5 py-2.5 text-center no-underline inline-block text-3xl font-bold tracking-wider uppercase cursor-pointer rounded-md transition-colors duration-300 ease-in-out"
+            onClick={() => startShopping()}
+          >
             Start Order
           </button>
         )}
         {shoppingCart.length > 0 && (
           <>
-            <button className="shoppingButtons" onClick={() => checkout()}>
+            <button className="cursor-pointer" onClick={() => checkout()}>
               Checkout
             </button>
-            <button className="shoppingButtons" onClick={() => deleteOrder()}>
+            <button className="cursor-pointer" onClick={() => deleteOrder()}>
               Cancel Order
             </button>
           </>
         )}
       </div>
       <div>
-        <h1 id="myShoppingCart"> My Shopping Cart</h1>
+        <h1 className="p-4 mx-80 border-2 border-yellow-500 rounded shadow-md animate-border-color">
+          My Shopping Cart
+        </h1>
         <br></br>
         {shoppingCart.length > 0 ? (
-          <div id="myCart">
+          <div className="p-2 mx-80 border-2 border-yellow-500 rounded shadow-md animate-border-color">
             <h2>Total: ${totalPrice}</h2>
             {shoppingCart.map((item) => (
               <div key={item.item_id}>
                 <p>{item.name}</p>
                 <p>Qty: {item.qty}</p>
                 <button
-                  className="shoppingButtons"
+                  className="cursor-pointer"
                   onClick={() => handleEditQty(item.item_id, item.qty - 1)}
                 >
-                  {" "}
                   -
                 </button>
                 <button
-                  className="shoppingButtons"
+                  className="cursor-pointer"
                   onClick={() => deleteItem(item.item_id, item.qty)}
                 >
                   Delete
                 </button>
                 <button
-                  className="shoppingButtons"
+                  className="cursor-pointer"
                   onClick={() => handleEditQty(item.item_id, item.qty + 1)}
                 >
-                  {" "}
                   +
                 </button>
                 <p>Cost Per Item: ${item.price}</p>

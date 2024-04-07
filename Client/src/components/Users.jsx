@@ -31,10 +31,13 @@ export default function allUsers() {
     await deleteuser(userid);
   }
   return (
-    <div className="route_flex">
+    <div className="flex-1">
       <h2>Users in database</h2>
       {users.map((user) => (
-        <div key={user.user_id} className="users">
+        <div
+          key={user.user_id}
+          className="inline-table m-4 border border-black p-4"
+        >
           <p>User Id: {user.user_id}</p>
           <p>Username: {user.username}</p>
           <p>email: {user.email}</p>

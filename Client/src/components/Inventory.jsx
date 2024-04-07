@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-// import InventoryItem from "./InventoryItem";
-// // import { useNavigate } from "react-router-dom";
+
 import {
   fetchAllInventories,
   createProduct,
@@ -44,6 +43,7 @@ export default function allInventories() {
       inventoryID,
       category
     );
+    // eslint-disable-next-line no-useless-catch
     try {
       const addedInventoryFromDB = await createProduct({
         product_name,
@@ -62,6 +62,7 @@ export default function allInventories() {
 
   async function handleUpdateInventoryQuantity(e, inventory_id, quantity) {
     e.preventDefault();
+    // eslint-disable-next-line no-useless-catch
     try {
       const updatedInventoryFromDB = await updateInventoryQuantity(
         inventory_id,
@@ -76,6 +77,7 @@ export default function allInventories() {
 
   async function handleDeleteProduct(e, inventory_id) {
     e.preventDefault();
+    // eslint-disable-next-line no-useless-catch
     try {
       const deleteProductsFromDB = await deleteProduct(inventory_id);
       return deleteProductsFromDB;
@@ -85,13 +87,13 @@ export default function allInventories() {
   }
 
   return (
-    <div className="route_flex">
+    <div className="flex-1">
       <h2>Inventory</h2>
       <form
         onSubmit={(e) =>
           handleAdd(e, product_name, price, description, inventoryID, category)
         }
-        className="addProduct"
+        className="m-1 border border-black p-4"
       >
         <label>Create New Product</label>
         <input
@@ -141,7 +143,10 @@ export default function allInventories() {
           0
         );
         return (
-          <div key={product.product_id} className="inventories">
+          <div
+            key={product.product_id}
+            className="inline-table m-1 border border-black p-4"
+          >
             <p>Inventory ID: {product.inventory_id}</p>
             <p>Product: {product.product_name}</p>
             <p>Description: {product.description}</p>
@@ -169,7 +174,7 @@ export default function allInventories() {
               </button>
             </form>
             <button
-              className="shoppingButtons"
+              className="cursor-pointer"
               value={product.product_id}
               onClick={(e) => {
                 handleDeleteProduct(e, product.inventory_id);

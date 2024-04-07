@@ -73,15 +73,18 @@ export default function allProducts({ setCartItemCount }) {
   }, {});
 
   return (
-    <div className="route_flex">
-      <h2>Menu</h2>
+    <div className="flex-1 bg-yellow-100">
+      <h2 className="text-4xl font-semibold text-gray-800 mb-4">Menu</h2>
       {Object.entries(groupedProducts).map(([category, products]) => (
         <div key={category}>
           <h1>{category}</h1>
           {products.map((product) => (
-            <div className="menuItem" key={product.product_id}>
-              <h3 className="productName">{product.product_name}</h3>
-              <div className="productCard">
+            <div
+              className="menuItem min-w-[18rem] m-4 inline-table grid-cols-4 justify-center mr-1 pb-4 m-1 border-2 border-yellow-500 rounded shadow-md"
+              key={product.product_id}
+            >
+              <h3 className="text-white">{product.product_name}</h3>
+              <div className="text-white">
                 <p>{product.description}</p>
                 <p>${product.price}</p>
 
@@ -95,7 +98,7 @@ export default function allProducts({ setCartItemCount }) {
                     <div>
                       <div>
                         <button
-                          className="count-button"
+                          className="bg-slate-400 border-none text-black px-4 py-2 text-center no-underline inline-block text-base mx-1 cursor-pointer rounded-md transition-colors duration-300 ease-in-out"
                           onClick={() => {
                             const currentCount =
                               counts[product.product_id] || 1;
@@ -108,11 +111,11 @@ export default function allProducts({ setCartItemCount }) {
                         >
                           -
                         </button>
-                        <span className="count">
+                        <span className="inline-block text-base font-bold mx-2">
                           {counts[product.product_id] || 1}
                         </span>
                         <button
-                          className="count-button"
+                          className="bg-slate-400 border-none text-black px-4 py-2 text-center no-underline inline-block text-base mx-1 cursor-pointer rounded-md transition-colors duration-300 ease-in-out"
                           onClick={() => {
                             const currentCount =
                               counts[product.product_id] || 1;
@@ -126,7 +129,7 @@ export default function allProducts({ setCartItemCount }) {
                         </button>
                       </div>
                       <button
-                        id="addToCartButton"
+                        className="bg-yellow-300 border-none text-black px-4 py-2 text-center no-underline inline-block text-base mt-2 cursor-pointer rounded transition-colors duration-300 ease-in-out"
                         onClick={() =>
                           addToCart(
                             shoppingCartId,

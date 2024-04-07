@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 export function Dashboardnav() {
   return (
     <>
-      <div className="route_flex">
-        <nav className="nav">
-          <div className="Link">
+      <div className="flex-1">
+        <nav className="bg-black flex">
+          <div className="m-auto">
             <Link to="inventory">Products</Link>
           </div>
-          <div className="Link">
+          <div className="m-auto">
             <Link to="users">Users</Link>
           </div>
         </nav>

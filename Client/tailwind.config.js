@@ -1,13 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
-  content: ["./src/**/*.{html,js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        bigburger2: "url('./src/assets/bigburger2.jpg')",
+      },
+      height: {
+        120: "30rem",
+      },
+      animation: {
+        "border-color": "border-color 2s linear infinite",
+        gradient: "gradientAnimation 10s ease infinite",
+      },
+    },
   },
-  variants: {
-    extend: {},
-  },
+
   plugins: [],
 };
