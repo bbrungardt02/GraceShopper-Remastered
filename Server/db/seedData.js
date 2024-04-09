@@ -1,36 +1,52 @@
 // Create some seed data and export it from this file
-const users = [
-  {
-    username: "Brandon",
-    email: "Brandon@gmail.com",
-    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
-    adm: false,
-  },
-  {
-    username: "Jeffrey",
-    email: "Jeffrey@gmail.com",
-    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
-    adm: false,
-  },
-  {
-    username: "Elliot",
-    email: "Elliot@gmail.com",
-    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
-    adm: false,
-  },
-  {
-    username: "Brian",
-    email: "Brian@gmail.com",
-    password: "$2b$10$yrwvB95UJ0WH0ybl0e/ubua1FjETUtduNVuyIf4cV1J1/su3z5BR.",
-    adm: false,
-  },
-  {
-    username: "admin",
-    email: "admin@admin",
-    password: "$2b$10$c8nQpTEzAMZzbymAFuAQmeGbiTGADyxfEo9MMksM2qo6Erb0vPpeG",
-    adm: true,
-  },
-];
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
+async function hashPassword(password) {
+  return await bcrypt.hash(password, saltRounds);
+}
+
+async function createSeedData() {
+  const users = [
+    {
+      username: "Brandon",
+      email: "Brandon@gmail.com",
+      password: "password1234",
+      adm: false,
+    },
+    {
+      username: "Jeffrey",
+      email: "Jeffrey@gmail.com",
+      password: "password1234",
+      adm: false,
+    },
+    {
+      username: "Elliot",
+      email: "Elliot@gmail.com",
+      password: "password1234",
+      adm: false,
+    },
+    {
+      username: "Brian",
+      email: "Brian@gmail.com",
+      password: "password1234",
+      adm: false,
+    },
+    {
+      username: "admin",
+      email: "admin@admin",
+      password: "admin1234",
+      adm: true,
+    },
+  ];
+
+  for (let user of users) {
+    user.password = await hashPassword(user.password);
+  }
+  console.log(users);
+}
+
+createSeedData().catch(console.error);
 
 const products = [
   {
