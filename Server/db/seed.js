@@ -10,6 +10,7 @@ const {
   inventories,
   shopping_carts,
   cart_items,
+  createSeedData,
 } = require("./seedData");
 
 async function dropTables() {
@@ -87,6 +88,7 @@ async function createTables() {
 async function populateTables() {
   console.log("Populating tables...");
   try {
+    const users = await createSeedData();
     for (const user of users) {
       await createUser(user);
       console.log("users table populated");

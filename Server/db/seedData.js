@@ -44,6 +44,7 @@ async function createSeedData() {
     user.password = await hashPassword(user.password);
   }
   console.log(users);
+  return users;
 }
 
 createSeedData().catch(console.error);
@@ -174,11 +175,11 @@ const shopping_carts = [
   { status: "completed", user_id: 5 },
 ];
 
-// ]
 module.exports = {
-  users,
+  // users,
   inventories,
   cart_items,
   shopping_carts,
   products,
+  createSeedData,
 };
